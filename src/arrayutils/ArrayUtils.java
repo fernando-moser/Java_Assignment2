@@ -17,16 +17,16 @@ public class ArrayUtils {
      */
     public static int[] applyMask(int[] arr, boolean[] mask) {
         //create a new array to store the results to retun
-            int[] result = new int[mask.length];
-            
+        int[] result = new int[mask.length];
+
         // run a loop to check the result and store the results accordingly
-            for(int i=0; i<arr.length; i++){
-                if (mask[i] == true){
-                    result[i] = arr[i];
-                }
+        for (int i = 0; i < arr.length; i++) {
+            if (mask[i] == true) {
+                result[i] = arr[i];
             }
+        }
         // return the result array
-            return result;
+        return result;
     }
 
     /**
@@ -36,27 +36,26 @@ public class ArrayUtils {
      * @param arrB another input array
      * @return a new array containing all the elements from both arrays
      */
-    
     public static int[] concatenate(int[] arrA, int[] arrB) {
         // create new array to store the result
-            int[] result = new int[arrA.length + arrB.length];
+        int[] result = new int[arrA.length + arrB.length];
 
         // run a loop to combine the arrays and store the results
-            for(int i=0;i<result.length;i++){
-                while(i<arrA.length){
-                    for(int a=0;a<arrA.length;a++){
-                    result[i]=arrA[a];
-                    }
-                }
-                if(i>arrA.length){
-                    for(int b=0;b<arrB.length;b++){
-                    result[i]=arrB[b];
-                    }
+        for (int i = 0; i < result.length; i++) {
+            while (i < arrA.length) {
+                for (int a = 0; a < arrA.length; a++) {
+                    result[i] = arrA[a];
                 }
             }
+            if (i > arrA.length) {
+                for (int b = 0; b < arrB.length; b++) {
+                    result[i] = arrB[b];
+                }
+            }
+        }
         return result;
     }
-    
+
     /**
      * Determines whether an array of numbers contains a certain key.
      *
@@ -67,17 +66,17 @@ public class ArrayUtils {
      */
     public static boolean contains(int[] arr, int key) {
         // boolean variable to store the result
-            boolean result = false;
-        
+        boolean result = false;
+
         // run a loop to check if key is there or not
-            for(int i=0;i<arr.length;i++){
-                if(arr[i] == key){
-                    result = true;
-                    break;
-                }
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == key) {
+                result = true;
+                break;
             }
+        }
         // return the result
-            return result;
+        return result;
     }
 
     /**
@@ -92,17 +91,17 @@ public class ArrayUtils {
      */
     public static int[] cumulativeSums(int[] arr) {
         // a new array to store the result
-            int[] sum = new int[arr.length];
+        int[] sum = new int[arr.length];
         // store the cumulative sum
-            int prevIndex = 1;
-            sum[0] = arr[0];
-            for(int i=1;i<arr.length;i++){
-                sum[i] = sum[i-prevIndex] + arr[i];
-            }
+        int prevIndex = 1;
+        sum[0] = arr[0];
+        for (int i = 1; i < arr.length; i++) {
+            sum[i] = sum[i - prevIndex] + arr[i];
+        }
         // return the result
-            return sum;
+        return sum;
     }
-    
+
     /**
      * Creates an array containing the element-wise sums of two input arrays.
      *
@@ -117,12 +116,12 @@ public class ArrayUtils {
      */
     public static int[] elementwiseSums(int[] arrA, int[] arrB) {
         // a new array to store the result
-            int[] result = new int[arrA.length];
-        
+        int[] result = new int[arrA.length];
+
         // run a loop to add the corresponding elements of the two arrays
-            for(int i=0;i<arrA.length;i++){
-                result[i] = arrA[i] + arrB[i];
-            }
+        for (int i = 0; i < arrA.length; i++) {
+            result[i] = arrA[i] + arrB[i];
+        }
         return result;
     }
 
@@ -134,7 +133,13 @@ public class ArrayUtils {
      * @return the number of matches
      */
     public static int frequency(int[] arr, int key) {
-        return 0;
+        int count = 0;
+        for (int number : arr) {
+            if (number == key) {
+                count++;
+            }
+        }
+        return count;
     }
 
     /**
@@ -145,7 +150,25 @@ public class ArrayUtils {
      * <strong>false</strong> otherwise.
      */
     public static boolean isSorted(int[] arr) {
-        return false;
+        boolean isSorted = false;
+        switch (arr.length) {
+            case 1:
+                return true;
+            case 2:
+                return arr[1] > arr[0];
+            default:
+                for (int i = 1; i < (arr.length - 1); i++) {
+                    int previousNumber = arr[i - 1];
+                    int currentNumber = arr[i];
+                    int nextNumber = arr[i + 1];
+                    isSorted = currentNumber > previousNumber
+                            && currentNumber < nextNumber;
+                    if (!isSorted) {
+                        break;
+                    }
+                }   break;
+        }
+        return isSorted;
     }
 
     /**
@@ -162,7 +185,31 @@ public class ArrayUtils {
      * then the result should be [2,5,7,9,12,15,18,24,26].
      */
     public static int[] merge(int[] arrA, int[] arrB) {
-        return new int[0];
+        if(!isSorted(arrA) || !isSorted(arrB)) {
+            System.out.println("TEst");
+            return new int[0];
+        }
+        int[] newArray = new int[arrA.length + arrB.length];
+        for(int i = 0; i < arrA.length; i++) {
+            newArray[i] = arrA[i];
+        }
+        int arrBIndex = 0;
+        for (int i = arrA.length; i < newArray.length; i++) {
+            newArray[i] = arrB[arrBIndex++];
+        }
+        boolean sorted = false;
+        while(!sorted) {
+            sorted = true;
+            for (int i = 1; i < newArray.length; i++) {
+                if(newArray[i-1] > newArray[i]) {
+                    int temp = newArray[i-1];
+                    newArray[i-1] = newArray[i];
+                    newArray[i] = temp;
+                    sorted = false;
+                }
+            }
+        }
+        return newArray;
     }
 
     /**
@@ -172,7 +219,21 @@ public class ArrayUtils {
      * @return a new array with the input array's elements in reverse order
      */
     public static int[] reverse(int[] arr) {
-        return new int[0];
+        int[] newArray = new int[arr.length];
+        int first = 0;
+        int last = arr.length-1;
+        
+        if(arr.length % 2 != 0) {
+            int middleElementIndex = arr.length/2;
+            newArray[middleElementIndex] = arr[middleElementIndex];
+        }
+        
+        for (int i = 0; i < arr.length/2; i++) {
+            int temp = arr[first];
+            newArray[first++] = arr[last];
+            newArray[last--] = temp;
+        }
+        return newArray;
     }
 
     /**
@@ -188,8 +249,11 @@ public class ArrayUtils {
      * result should be [35,10,40,15].
      */
     public static int[] scale(int[] arr, int scalar) {
-        System.out.println("Test");
-        return new int[0];
+        int[] newArray = new int[arr.length];
+        for(int i = 0; i < arr.length; i++) {
+            newArray[i] = arr[i] * scalar;
+        }
+        return newArray;
     }
 
 } // end class ArrayUtils
