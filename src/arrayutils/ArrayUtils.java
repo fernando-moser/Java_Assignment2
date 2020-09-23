@@ -16,7 +16,17 @@ public class ArrayUtils {
      * then the result should be [7,2,3].
      */
     public static int[] applyMask(int[] arr, boolean[] mask) {
-        return new int[0];
+        //create a new array to store the results to retun
+            int[] result = new int[mask.length];
+            
+        // run a loop to check the result and store the results accordingly
+            for(int i=0; i<arr.length; i++){
+                if (mask[i] == true){
+                    result[i] = arr[i];
+                }
+            }
+        // return the result array
+            return result;
     }
 
     /**
@@ -26,10 +36,27 @@ public class ArrayUtils {
      * @param arrB another input array
      * @return a new array containing all the elements from both arrays
      */
+    
     public static int[] concatenate(int[] arrA, int[] arrB) {
-        return new int[0];
-    }
+        // create new array to store the result
+            int[] result = new int[arrA.length + arrB.length];
 
+        // run a loop to combine the arrays and store the results
+            for(int i=0;i<result.length;i++){
+                while(i<arrA.length){
+                    for(int a=0;a<arrA.length;a++){
+                    result[i]=arrA[a];
+                    }
+                }
+                if(i>arrA.length){
+                    for(int b=0;b<arrB.length;b++){
+                    result[i]=arrB[b];
+                    }
+                }
+            }
+        return result;
+    }
+    
     /**
      * Determines whether an array of numbers contains a certain key.
      *
@@ -39,7 +66,18 @@ public class ArrayUtils {
      * <strong>false</strong> otherwise
      */
     public static boolean contains(int[] arr, int key) {
-        return false;
+        // boolean variable to store the result
+            boolean result = false;
+        
+        // run a loop to check if key is there or not
+            for(int i=0;i<arr.length;i++){
+                if(arr[i] == key){
+                    result = true;
+                    break;
+                }
+            }
+        // return the result
+            return result;
     }
 
     /**
@@ -53,9 +91,18 @@ public class ArrayUtils {
      * [7,9,17,20,26].
      */
     public static int[] cumulativeSums(int[] arr) {
-        return new int[0];
+        // a new array to store the result
+            int[] sum = new int[arr.length];
+        // store the cumulative sum
+            int prevIndex = 1;
+            sum[0] = arr[0];
+            for(int i=1;i<arr.length;i++){
+                sum[i] = sum[i-prevIndex] + arr[i];
+            }
+        // return the result
+            return sum;
     }
-
+    
     /**
      * Creates an array containing the element-wise sums of two input arrays.
      *
@@ -69,7 +116,14 @@ public class ArrayUtils {
      * then the result should be [15,5,10,9,15].
      */
     public static int[] elementwiseSums(int[] arrA, int[] arrB) {
-        return new int[0];
+        // a new array to store the result
+            int[] result = new int[arrA.length];
+        
+        // run a loop to add the corresponding elements of the two arrays
+            for(int i=0;i<arrA.length;i++){
+                result[i] = arrA[i] + arrB[i];
+            }
+        return result;
     }
 
     /**
