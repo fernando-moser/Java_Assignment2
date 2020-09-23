@@ -188,6 +188,7 @@ public class ArrayUtils {
      * result should be [35,10,40,15].
      */
     public static int[] scale(int[] arr, int scalar) {
+        System.out.println("Test");
         return new int[0];
     }
 
