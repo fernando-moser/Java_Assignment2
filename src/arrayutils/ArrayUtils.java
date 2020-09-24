@@ -186,7 +186,6 @@ public class ArrayUtils {
      */
     public static int[] merge(int[] arrA, int[] arrB) {
         if(!isSorted(arrA) || !isSorted(arrB)) {
-            System.out.println("TEst");
             return new int[0];
         }
         int[] newArray = new int[arrA.length + arrB.length];
@@ -199,7 +198,7 @@ public class ArrayUtils {
         }
         boolean sorted = false;
         while(!sorted) {
-            sorted = true;
+            sorted = !sorted;
             for (int i = 1; i < newArray.length; i++) {
                 if(newArray[i-1] > newArray[i]) {
                     int temp = newArray[i-1];
