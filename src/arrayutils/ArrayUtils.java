@@ -16,17 +16,25 @@ public class ArrayUtils {
      * then the result should be [7,2,3].
      */
     public static int[] applyMask(int[] arr, boolean[] mask) {
-        //create a new array to store the results to retun
-        int[] result = new int[mask.length];
-
+        // create a string variable to store the results
+            String strResult = "";   
+            
         // run a loop to check the result and store the results accordingly
-        for (int i = 0; i < arr.length; i++) {
-            if (mask[i] == true) {
-                result[i] = arr[i];
+            for(int i=0; i<arr.length; i++){
+                if (mask[i] == true){
+                    strResult += arr[i] + ",";
+                }
             }
-        }
+        // store the resultString in a string array and convert to int array
+            String resultArray[] = strResult.split(",");
+            int[] result = new int[resultArray.length];
+            
+            for(int j=0;j<resultArray.length;j++){
+                result[j] = Integer.parseInt(resultArray[j]);
+            }
+            
         // return the result array
-        return result;
+            return result;
     }
 
     /**
@@ -166,7 +174,8 @@ public class ArrayUtils {
                     if (!isSorted) {
                         break;
                     }
-                }   break;
+                }   
+                break;
         }
         return isSorted;
     }
