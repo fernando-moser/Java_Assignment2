@@ -194,15 +194,8 @@ public class ArrayUtils {
         if(!isSorted(arrA) || !isSorted(arrB)) {
             return new int[0];
         }
-        
-        int[] newArray = new int[arrA.length + arrB.length];
-        for(int i = 0; i < arrA.length; i++) {
-            newArray[i] = arrA[i];
-        }
-        int arrBIndex = 0;
-        for (int i = arrA.length; i < newArray.length; i++) {
-            newArray[i] = arrB[arrBIndex++];
-        }
+        int[] newArray = concatenate(arrA, arrB);
+
         boolean sorted = false;
         while(!sorted) {
             sorted = !sorted;
