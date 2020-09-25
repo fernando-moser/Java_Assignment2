@@ -197,6 +197,7 @@ public class ArrayUtils {
         if(!isSorted(arrA) || !isSorted(arrB)) {
             return new int[0];
         }
+        
         int[] newArray = new int[arrA.length + arrB.length];
         for(int i = 0; i < arrA.length; i++) {
             newArray[i] = arrA[i];
