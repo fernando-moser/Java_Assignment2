@@ -11,13 +11,17 @@ package arrayutils;
  */
 public final class Table {
     /**
-     * String containing the concatenated string as a HTML table.
+     * Method name
      */
     private String methodName = "";
+    /**
+     * String containing the concatenated string as a HTML table.
+     */
     private String table = "<table>";
     
     /**
      * Instantiates a table object and adds the header of a HTML table results
+     * @param methodName
      */
     public Table(String methodName) {
         this.methodName = "<h1> Method: " + methodName + "</h1>";

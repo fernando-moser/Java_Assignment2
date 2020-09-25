@@ -609,6 +609,174 @@ public class ArrayUtilsTester {
         testMerge.AddRow(rowTestMerge7);
 
     }
+    
+    private void runTestReverse() {
+        Table testReverse = new Table("reverse");
+        tables[8] = testReverse;
+//        Test 1
+        Row rowTestReverse1 = new Row();
+        rowTestReverse1.setID("testReverse-1");
+        rowTestReverse1.setDescription("Passing an array with 3 items");
+        
+        int[] input1 = {2,7,9};
+        int[] expectedResult1 = {9,7,2};
+        
+        rowTestReverse1.setInput(Arrays.toString(input1));
+        
+        rowTestReverse1.setExpectedResult(Arrays.toString(expectedResult1));
+        
+        int[] result1 = ArrayUtils.reverse(input1);
+        
+        rowTestReverse1.setActualResult(Arrays.toString(result1));
+        rowTestReverse1.setPass(Arrays.equals(expectedResult1, result1));
+        
+        testReverse.AddRow(rowTestReverse1);
+        
+//        Test 2
+        Row rowTestReverse2 = new Row();
+        rowTestReverse2.setID("testReverse-2");
+        rowTestReverse2.setDescription("Passing an array with 2 items");
+        
+        int[] input2 = {2,7};
+        int[] expectedResult2 = {7,2};
+        
+        rowTestReverse2.setInput(Arrays.toString(input2));
+        
+        rowTestReverse2.setExpectedResult(Arrays.toString(expectedResult2));
+        
+        int[] result2 = ArrayUtils.reverse(input2);
+        
+        rowTestReverse2.setActualResult(Arrays.toString(result2));
+        rowTestReverse2.setPass(Arrays.equals(expectedResult2, result2));
+        
+        testReverse.AddRow(rowTestReverse2);
+
+//        Test 3
+        Row rowTestReverse3 = new Row();
+        rowTestReverse3.setID("testReverse-3");
+        rowTestReverse3.setDescription("Passing an array with 1 item");
+        
+        int[] input3 = {7};
+        int[] expectedResult3 = {7};
+        
+        rowTestReverse3.setInput(Arrays.toString(input3));
+        
+        rowTestReverse3.setExpectedResult(Arrays.toString(expectedResult3));
+        
+        int[] result3 = ArrayUtils.reverse(input3);
+        
+        rowTestReverse3.setActualResult(Arrays.toString(result3));
+        rowTestReverse3.setPass(Arrays.equals(expectedResult3, result3));
+        
+        testReverse.AddRow(rowTestReverse3);
+
+//        Test 4
+        Row rowTestReverse4 = new Row();
+        rowTestReverse4.setID("testReverse-4");
+        rowTestReverse4.setDescription("Passing an empty array");
+        
+        int[] input4 = {};
+        int[] expectedResult4 = {};
+        
+        rowTestReverse4.setInput(Arrays.toString(input4));
+        
+        rowTestReverse4.setExpectedResult(Arrays.toString(expectedResult4));
+        
+        int[] result4 = ArrayUtils.reverse(input4);
+        
+        rowTestReverse4.setActualResult(Arrays.toString(result4));
+        rowTestReverse4.setPass(Arrays.equals(expectedResult4, result4));
+        
+        testReverse.AddRow(rowTestReverse4);         
+    }
+    
+    private void runTestScale() {
+        Table testScale = new Table("scale");
+        tables[9] = testScale;
+//        Test 1
+        Row rowTestScale1 = new Row();
+        rowTestScale1.setID("testScale-1");
+        rowTestScale1.setDescription("Passing an array with 3 items and a scale");
+        
+        int[] input1a = {2,7,9};
+        int input1b = 2;
+        int[] expectedResult1 = {4,14,18};
+        
+        rowTestScale1.setInput(Arrays.toString(input1a));
+        rowTestScale1.setInput(String.valueOf(input1b));
+        
+        rowTestScale1.setExpectedResult(Arrays.toString(expectedResult1));
+        
+        int[] result1 = ArrayUtils.scale(input1a,input1b);
+        
+        rowTestScale1.setActualResult(Arrays.toString(result1));
+        rowTestScale1.setPass(Arrays.equals(expectedResult1, result1));
+        
+        testScale.AddRow(rowTestScale1);
+        
+//        Test 2
+        Row rowTestScale2 = new Row();
+        rowTestScale2.setID("testScale-2");
+        rowTestScale2.setDescription("Passing an array with 1 item and a scale");
+        
+        int[] input2a = {11};
+        int input2b = 7;
+        int[] expectedResult2 = {77};
+        
+        rowTestScale2.setInput(Arrays.toString(input2a));
+        rowTestScale2.setInput(String.valueOf(input2b));
+        
+        rowTestScale2.setExpectedResult(Arrays.toString(expectedResult2));
+        
+        int[] result2 = ArrayUtils.scale(input2a,input2b);
+        
+        rowTestScale2.setActualResult(Arrays.toString(result2));
+        rowTestScale2.setPass(Arrays.equals(expectedResult2, result2));
+        
+        testScale.AddRow(rowTestScale2);
+        
+//        Test 3
+        Row rowTestScale3 = new Row();
+        rowTestScale3.setID("testScale-3");
+        rowTestScale3.setDescription("Passing an array with negative numbers and a scale");
+        
+        int[] input3a = {-10,-3,-50};
+        int input3b = 5;
+        int[] expectedResult3 = {-50,-15,-250};
+        
+        rowTestScale3.setInput(Arrays.toString(input3a));
+        rowTestScale3.setInput(String.valueOf(input3b));
+        
+        rowTestScale3.setExpectedResult(Arrays.toString(expectedResult3));
+        
+        int[] result3 = ArrayUtils.scale(input3a,input3b);
+        
+        rowTestScale3.setActualResult(Arrays.toString(result3));
+        rowTestScale3.setPass(Arrays.equals(expectedResult3, result3));
+        
+        testScale.AddRow(rowTestScale3);
+        
+//        Test 4
+        Row rowTestScale4 = new Row();
+        rowTestScale4.setID("testScale-4");
+        rowTestScale4.setDescription("Passing an array with an empty array");
+        
+        int[] input4a = {};
+        int input4b = 5;
+        int[] expectedResult4 = {};
+        
+        rowTestScale4.setInput(Arrays.toString(input4a));
+        rowTestScale4.setInput(String.valueOf(input4b));
+        
+        rowTestScale4.setExpectedResult(Arrays.toString(expectedResult4));
+        
+        int[] result4 = ArrayUtils.scale(input4a,input4b);
+        
+        rowTestScale4.setActualResult(Arrays.toString(result4));
+        rowTestScale4.setPass(Arrays.equals(expectedResult4, result4));
+        
+        testScale.AddRow(rowTestScale4);
+    }
   
     private void runTests() {
     // Call test methods
@@ -620,6 +788,8 @@ public class ArrayUtilsTester {
         runTestFrequency();
         runTestIsSorted();
         runTestMerge();
+        runTestReverse();
+        runTestScale();
     }
     
     private void showReport() {
