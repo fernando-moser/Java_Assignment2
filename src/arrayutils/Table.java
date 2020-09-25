@@ -13,12 +13,15 @@ public final class Table {
     /**
      * String containing the concatenated string as a HTML table.
      */
+    private String methodName = "";
     private String table = "<table>";
     
     /**
      * Instantiates a table object and adds the header of a HTML table results
      */
-    public Table() {
+    public Table(String methodName) {
+        this.methodName = "<h1>" + methodName + "</h1>";
+        
         Row headerRow = new Row(true);
         headerRow.setID("Test ID");
         headerRow.setDescription("Description");
@@ -56,6 +59,6 @@ public final class Table {
      * @return String containing the HTML table
      */
     public String getTable() {
-        return table + "</table>";
+        return methodName + table + "</table>";
     }
 }

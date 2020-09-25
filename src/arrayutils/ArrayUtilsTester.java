@@ -9,7 +9,7 @@ public class ArrayUtilsTester {
     
     private void runTestsApplyMask() {
         //Tests for ApplyMask()
-            tables[0] = new Table();
+            tables[0] = new Table("applyMask");
         //Test 1
             Row rowApplyMask1 = new Row();
 
@@ -22,7 +22,7 @@ public class ArrayUtilsTester {
 
             int[] input1a = {1,20,13,4,5,3};
             boolean[] input2a = {true, false, false, true, true, true};
-            int[] result1 = ArrayUtils.ApplyMask(input1a, input2a);
+            int[] result1 = ArrayUtils.applyMask(input1a, input2a);
             rowApplyMask1.setActualResult(Arrays.toString(result1));
             //check if the expected result matches the actual result
             if(expectedResult1.equals(Arrays.toString(result1))){
@@ -44,7 +44,7 @@ public class ArrayUtilsTester {
 
             int[] input1b = {9,10,11,78,8,6};
             boolean[] input2b = {true, true, false, false, true, true};
-            int[] result2 = ArrayUtils.ApplyMask(input1b, input2b);
+            int[] result2 = ArrayUtils.applyMask(input1b, input2b);
             rowApplyMask2.setActualResult(Arrays.toString(result2));
             //check if the expected result matches the actual result
             if(expectedResult2.equals(Arrays.toString(result2))){
@@ -66,7 +66,7 @@ public class ArrayUtilsTester {
 
             int[] input1c = {11,-2,3,0,5,-6};
             boolean[] input2c = {false, false, true, true, true, false};
-            int[] result3 = ArrayUtils.ApplyMask(input1c, input2c);
+            int[] result3 = ArrayUtils.applyMask(input1c, input2c);
             rowApplyMask3.setActualResult(Arrays.toString(result3));
             //check if the expected result matches the actual result
             if(expectedResult3.equals(Arrays.toString(result3))){
@@ -79,7 +79,7 @@ public class ArrayUtilsTester {
     
     private void runTestsConcatenate() {
         //Tests for Concatenate()
-            tables[1] = new Table();
+            tables[1] = new Table("concatenate");
         //Test 1
             Row rowConcatenate1 = new Row();
 
@@ -149,7 +149,7 @@ public class ArrayUtilsTester {
     
     private void runTestContains(){
         //Tests for Contains()
-            tables[2] = new Table();
+            tables[2] = new Table("contains");
             
         //Test 1
             Row rowContains1 = new Row();
@@ -222,7 +222,7 @@ public class ArrayUtilsTester {
     
     private void runTestCumulativeSums(){
         //Tests for CumulativeSum()
-            tables[3] = new Table();
+            tables[3] = new Table("cumulativeSums");
             
         //Test 1
             Row rowCumulativeSums1 = new Row();
@@ -288,7 +288,7 @@ public class ArrayUtilsTester {
     
     private void runTestElementwiseSums(){
         //Tests for ElementwiseSums()
-            tables[4] = new Table();
+            tables[4] = new Table("elementwiseSums");
             
         //Test 1
             Row rowElementwiseSums1 = new Row();
@@ -357,10 +357,10 @@ public class ArrayUtilsTester {
             tables[4].AddRow(rowElementwiseSums3);
     }
    
-    private void testFrequency() {
+    private void runTestFrequency() {
     
 //    Tests for frequency()  
-        Table testFrequency = new Table();
+        Table testFrequency = new Table("frequency");
         tables[5] = testFrequency;
 //    Test 1:    
         Row rowTestFrequency1 = new Row();
@@ -403,9 +403,9 @@ public class ArrayUtilsTester {
 //        System.out.println(testFrequency.getTable());
     }
     
-    private void testIsSorted() {
+    private void runTestIsSorted() {
         
-        Table testIsSorted = new Table();
+        Table testIsSorted = new Table("isSorted");
         tables[6] = testIsSorted;
 //        Test 1
         Row rowTestIsSorted1 = new Row();
@@ -470,9 +470,9 @@ public class ArrayUtilsTester {
 //        System.out.println(testIsSorted.getTable());
     }
     
-    private void testMerge() {
+    private void runTestMerge() {
         
-        Table testMerge = new Table();
+        Table testMerge = new Table("merge");
         tables[7] = testMerge;
 //        Test 1
         Row rowTestMerge1 = new Row();
@@ -617,9 +617,9 @@ public class ArrayUtilsTester {
         runTestContains();
         runTestCumulativeSums();
         runTestElementwiseSums();
-        testFrequency();
-        testIsSorted();
-        testMerge();
+        runTestFrequency();
+        runTestIsSorted();
+        runTestMerge();
     }
     
     private void showReport() {

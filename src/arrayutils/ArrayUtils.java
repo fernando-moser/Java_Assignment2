@@ -15,7 +15,7 @@ public class ArrayUtils {
      * If <var>arr</var> is [7,2,8,3,9,4], and <var>mask</var> is [1,1,0,1,0,0],
      * then the result should be [7,2,3].
      */
-    public static int[] ApplyMask(int[] arr, boolean[] mask) {
+    public static int[] applyMask(int[] arr, boolean[] mask) {
         // create a string variable to store the results
             String strResult = "";   
             
