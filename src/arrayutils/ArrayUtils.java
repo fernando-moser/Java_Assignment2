@@ -15,7 +15,7 @@ public class ArrayUtils {
      * If <var>arr</var> is [7,2,8,3,9,4], and <var>mask</var> is [1,1,0,1,0,0],
      * then the result should be [7,2,3].
      */
-    public static int[] applyMask(int[] arr, boolean[] mask) {
+    public static int[] ApplyMask(int[] arr, boolean[] mask) {
         // create a string variable to store the results
             String strResult = "";   
             
@@ -44,26 +44,23 @@ public class ArrayUtils {
      * @param arrB another input array
      * @return a new array containing all the elements from both arrays
      */
+    
     public static int[] concatenate(int[] arrA, int[] arrB) {
         // create new array to store the result
-        int[] result = new int[arrA.length + arrB.length];
+            int[] result = new int[arrA.length + arrB.length];
 
         // run a loop to combine the arrays and store the results
-        for (int i = 0; i < result.length; i++) {
-            while (i < arrA.length) {
-                for (int a = 0; a < arrA.length; a++) {
-                    result[i] = arrA[a];
-                }
+            int lastIndex = 0;
+            for(int i=0;i<arrA.length;i++){
+                result[i]=arrA[i];
+                lastIndex++;
             }
-            if (i > arrA.length) {
-                for (int b = 0; b < arrB.length; b++) {
-                    result[i] = arrB[b];
-                }
+            for(int j=0;j<arrB.length;j++){
+                result[lastIndex++] = arrB[j];
             }
-        }
         return result;
     }
-
+    
     /**
      * Determines whether an array of numbers contains a certain key.
      *
@@ -74,17 +71,17 @@ public class ArrayUtils {
      */
     public static boolean contains(int[] arr, int key) {
         // boolean variable to store the result
-        boolean result = false;
-
+            boolean result = false;
+        
         // run a loop to check if key is there or not
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] == key) {
-                result = true;
-                break;
+            for(int i=0;i<arr.length;i++){
+                if(arr[i] == key){
+                    result = true;
+                    break;
+                }
             }
-        }
         // return the result
-        return result;
+            return result;
     }
 
     /**
@@ -99,15 +96,15 @@ public class ArrayUtils {
      */
     public static int[] cumulativeSums(int[] arr) {
         // a new array to store the result
-        int[] sum = new int[arr.length];
+            int[] sum = new int[arr.length];
         // store the cumulative sum
-        int prevIndex = 1;
-        sum[0] = arr[0];
-        for (int i = 1; i < arr.length; i++) {
-            sum[i] = sum[i - prevIndex] + arr[i];
-        }
+            int prevIndex = 1;
+            sum[0] = arr[0];
+            for(int i=1;i<arr.length;i++){
+                sum[i] = sum[i-prevIndex] + arr[i];
+            }
         // return the result
-        return sum;
+            return sum;
     }
 
     /**
@@ -124,15 +121,15 @@ public class ArrayUtils {
      */
     public static int[] elementwiseSums(int[] arrA, int[] arrB) {
         // a new array to store the result
-        int[] result = new int[arrA.length];
-
+            int[] result = new int[arrA.length];
+        
         // run a loop to add the corresponding elements of the two arrays
-        for (int i = 0; i < arrA.length; i++) {
-            result[i] = arrA[i] + arrB[i];
-        }
+            for(int i=0;i<arrA.length;i++){
+                result[i] = arrA[i] + arrB[i];
+            }
         return result;
     }
-
+    
     /**
      * Counts how many elements of an array are equal to a certain key.
      *
@@ -197,6 +194,7 @@ public class ArrayUtils {
         if(!isSorted(arrA) || !isSorted(arrB)) {
             return new int[0];
         }
+        
         int[] newArray = new int[arrA.length + arrB.length];
         for(int i = 0; i < arrA.length; i++) {
             newArray[i] = arrA[i];
