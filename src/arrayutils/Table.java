@@ -20,7 +20,7 @@ public final class Table {
      * Instantiates a table object and adds the header of a HTML table results
      */
     public Table(String methodName) {
-        this.methodName = "<h1>" + methodName + "</h1>";
+        this.methodName = "<h1> Method: " + methodName + "</h1>";
         
         Row headerRow = new Row(true);
         headerRow.setID("Test ID");
