@@ -7,7 +7,7 @@ public class ArrayUtilsTester {
     
     private Table[] tables = new Table[10];
     
-    public void runTestsApplyMask() {
+    private void runTestsApplyMask() {
         //Tests for ApplyMask()
             tables[0] = new Table();
         //Test 1
@@ -77,7 +77,7 @@ public class ArrayUtilsTester {
             tables[0].AddRow(rowApplyMask3);
     }
     
-    public void runTestsConcatenate() {
+    private void runTestsConcatenate() {
         //Tests for Concatenate()
             tables[1] = new Table();
         //Test 1
@@ -147,7 +147,7 @@ public class ArrayUtilsTester {
             tables[1].AddRow(rowConcatenate3);
     }
     
-    public void runTestContains(){
+    private void runTestContains(){
         //Tests for Contains()
             tables[2] = new Table();
             
@@ -220,7 +220,7 @@ public class ArrayUtilsTester {
             //System.out.println(tables[2].getTable());
     }
     
-    public void runTestCumulativeSums(){
+    private void runTestCumulativeSums(){
         //Tests for CumulativeSum()
             tables[3] = new Table();
             
@@ -286,7 +286,7 @@ public class ArrayUtilsTester {
            
     }
     
-    public void runTestElementwiseSums(){
+    private void runTestElementwiseSums(){
         //Tests for ElementwiseSums()
             tables[4] = new Table();
             
@@ -356,7 +356,6 @@ public class ArrayUtilsTester {
             }
             tables[4].AddRow(rowElementwiseSums3);
     }
-    
    
     private void testFrequency() {
     
@@ -611,19 +610,19 @@ public class ArrayUtilsTester {
 
     }
   
-      public void runTests() {
-        // Call test methods
-            runTestsApplyMask();
-            runTestsConcatenate();
-            runTestContains();
-            runTestCumulativeSums();
-            runTestElementwiseSums();
-            testFrequency();
-            testIsSorted();
-            testMerge();
+    private void runTests() {
+    // Call test methods
+        runTestsApplyMask();
+        runTestsConcatenate();
+        runTestContains();
+        runTestCumulativeSums();
+        runTestElementwiseSums();
+        testFrequency();
+        testIsSorted();
+        testMerge();
     }
     
-    public void showReport() {
+    private void showReport() {
         
         for(Table table : tables) {
             if(table != null)
