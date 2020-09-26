@@ -2,7 +2,7 @@ package arrayutils;
 
 import java.util.Arrays;
 
-//import cputils.FileUtils;
+import cputils.FileUtils;
 import java.io.*;
 
 public class ArrayUtilsTester {
@@ -18,8 +18,8 @@ public class ArrayUtilsTester {
 
             rowApplyMask1.setID("ApplyMask-1");
             rowApplyMask1.setDescription("Testing for ApplyMask(): Normal numbers <= 10");
-            rowApplyMask1.setInput("1,20,13,4,5,3");
-            rowApplyMask1.setInput("true, false, false, true, true, true");
+            rowApplyMask1.setInput("[1, 20, 13, 4, 5, 3]");
+            rowApplyMask1.setInput("[true, false, false, true, true, true]");
             String expectedResult1 = "[1, 4, 5, 3]";
             rowApplyMask1.setExpectedResult(expectedResult1);
 
@@ -40,8 +40,8 @@ public class ArrayUtilsTester {
 
             rowApplyMask2.setID("ApplyMask-2");
             rowApplyMask2.setDescription("Testing for ApplyMask(): Numbers close to 10");
-            rowApplyMask2.setInput("9,10,11,99,8,6");
-            rowApplyMask2.setInput("true, true, false, false, true, true");
+            rowApplyMask2.setInput("[9, 10, 11, 99, 8, 6]");
+            rowApplyMask2.setInput("[true, true, false, false, true, true]");
             String expectedResult2 = "[9, 10, 8, 6]";
             rowApplyMask2.setExpectedResult(expectedResult2);
 
@@ -62,8 +62,8 @@ public class ArrayUtilsTester {
 
             rowApplyMask3.setID("ApplyMask-3");
             rowApplyMask3.setDescription("Testing for ApplyMask(): Negative numbers and zero");
-            rowApplyMask3.setInput("11,-2,3,0,5,-6");
-            rowApplyMask3.setInput("false, false, true, true, true, false");
+            rowApplyMask3.setInput("[11, -2, 3, 0, 5, -6]");
+            rowApplyMask3.setInput("[false, false, true, true, true, false]");
             String expectedResult3 = "[3, 5]";
             rowApplyMask3.setExpectedResult(expectedResult3);
 
@@ -88,8 +88,8 @@ public class ArrayUtilsTester {
 
             rowConcatenate1.setID("Concatenate-1");
             rowConcatenate1.setDescription("Testing for Concatenating(): Normal integer arrays of same size");
-            rowConcatenate1.setInput("1,2,3,4, 5");
-            rowConcatenate1.setInput("6,7,8,9,10");
+            rowConcatenate1.setInput("[1, 2, 3, 4, 5]");
+            rowConcatenate1.setInput("[6, 7, 8, 9, 10]");
             String expectedResult1 = "[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]";
             rowConcatenate1.setExpectedResult(expectedResult1);
 
@@ -110,8 +110,8 @@ public class ArrayUtilsTester {
 
             rowConcatenate2.setID("Concatenate-2");
             rowConcatenate2.setDescription("Testing for Concatenating(): Integer arrays of different sizes");
-            rowConcatenate2.setInput("-1,0,2,-60,100");
-            rowConcatenate2.setInput("200,-99,45,3,58,32,-50");
+            rowConcatenate2.setInput("[-1, 0, 2, -60, 100]");
+            rowConcatenate2.setInput("[200, -99, 45, 3, 58, 32, -50]");
             String expectedResult2 = "[-1, 0, 2, -60, 100, 200, -99, 45, 3, 58, 32, -50]";
             rowConcatenate2.setExpectedResult(expectedResult2);
 
@@ -132,9 +132,9 @@ public class ArrayUtilsTester {
 
             rowConcatenate3.setID("Concatenate-3");
             rowConcatenate3.setDescription("Testing for Concatenating(): An integer array with a null array");
-            rowConcatenate3.setInput("11,-2,3,0,5,-6");
-            rowConcatenate3.setInput("");
-            String expectedResult3 = "[11, -2,  3, 0, 5, -6]";
+            rowConcatenate3.setInput("[11, -2, 3, 0, 5, -6]");
+            rowConcatenate3.setInput("[]");
+            String expectedResult3 = "[11, -2, 3, 0, 4, -6]";
             rowConcatenate3.setExpectedResult(expectedResult3);
 
             int[] input1c = {11,-2,3,0,5,-6};
@@ -159,7 +159,7 @@ public class ArrayUtilsTester {
 
             rowContains1.setID("Contains-1");
             rowContains1.setDescription("Testing for Contains(): Normal key search");
-            rowContains1.setInput("1,2,3,4,5");
+            rowContains1.setInput("[1, 2, 3, 4, 5]");
             rowContains1.setInput("3");
             String expectedResult1 = "true";
             rowContains1.setExpectedResult(expectedResult1);
@@ -181,7 +181,7 @@ public class ArrayUtilsTester {
 
             rowContains2.setID("Contains-2");
             rowContains2.setDescription("Testing for Contains(): Negative integer key search");
-            rowContains2.setInput("1,-2,3,4,-5");
+            rowContains2.setInput("[1, -2, 3, 4, -5]");
             rowContains2.setInput("-2");
             String expectedResult2 = "true";
             rowContains2.setExpectedResult(expectedResult2);
@@ -203,10 +203,10 @@ public class ArrayUtilsTester {
 
             rowContains3.setID("Contains-3");
             rowContains3.setDescription("Testing for Contains(): A non existing value");
-            rowContains3.setInput("0,-2,3,4,-5");
+            rowContains3.setInput("[0, -2, 3, 4, -5]");
             rowContains3.setInput("-0");
             String expectedResult3 = "false";
-            rowContains3.setExpectedResult(expectedResult2);
+            rowContains3.setExpectedResult(expectedResult3);
 
             int[] input1c = {0,-2,3,4,-5};
             int input2c = -0;
@@ -232,7 +232,7 @@ public class ArrayUtilsTester {
 
             rowCumulativeSums1.setID("CumulativeSum-1");
             rowCumulativeSums1.setDescription("Testing for CumulativeSum(): Normal integers");
-            rowCumulativeSums1.setInput("1,2,3,8,5");
+            rowCumulativeSums1.setInput("[1, 2, 3, 8, 5]");
             String expectedResult1 = "[1, 3, 6, 10, 15]";
             rowCumulativeSums1.setExpectedResult(expectedResult1);
 
@@ -252,7 +252,7 @@ public class ArrayUtilsTester {
 
             rowCumulativeSums2.setID("CumulativeSum-2");
             rowCumulativeSums2.setDescription("Testing for CumulativeSum(): Negative and positive integers");
-            rowCumulativeSums2.setInput("1,-2,3,4,-5");
+            rowCumulativeSums2.setInput("[1, -2, 3, 4, -5]");
             String expectedResult2 = "[1, -1, 2, 6, 1]";
             rowCumulativeSums2.setExpectedResult(expectedResult2);
 
@@ -272,15 +272,15 @@ public class ArrayUtilsTester {
 
             rowCumulativeSums3.setID("CumulativeSum-3");
             rowCumulativeSums3.setDescription("Testing for CumulativeSum(): Negative integers");
-            rowCumulativeSums3.setInput("-7,-6,-5,-4,-3,-2");
-            String expectedResult3 = "[-7, -13, -18, -22, -24]";
+            rowCumulativeSums3.setInput("[-7, -6, -5, -4, -3, -2]");
+            String expectedResult3 = "[-7, -13, -18, -22, -25, -27]";
             rowCumulativeSums3.setExpectedResult(expectedResult3);
 
             int[] input3a = {-7,-6,-5,-4,-3,-2};
             int[] result3 = ArrayUtils.cumulativeSums(input3a);
             rowCumulativeSums3.setActualResult(Arrays.toString(result3));
             //check if the expected result matches the actual result
-            if(expectedResult2.equals(Arrays.toString(result3))){
+            if(expectedResult3.equals(Arrays.toString(result3))){
                 rowCumulativeSums3.setPass(true);
             }else{
                 rowCumulativeSums3.setPass(false);
@@ -298,8 +298,8 @@ public class ArrayUtilsTester {
 
             rowElementwiseSums1.setID("ElementwiseSums-1");
             rowElementwiseSums1.setDescription("Testing for ElementwiseSum(): Normal integers");
-            rowElementwiseSums1.setInput("1,2,3,4,5");
-            rowElementwiseSums1.setInput("6,7,8,9,10");
+            rowElementwiseSums1.setInput("[1, 2,3 ,4, 5]");
+            rowElementwiseSums1.setInput("[6, 7, 8, 9, 10]");
             String expectedResult1 = "[7, 9, 11, 13, 15]";
             rowElementwiseSums1.setExpectedResult(expectedResult1);
 
@@ -320,8 +320,8 @@ public class ArrayUtilsTester {
 
             rowElementwiseSums2.setID("ElementwiseSums-2");
             rowElementwiseSums2.setDescription("Testing for ElementwiseSum(): Positive and negative integers");
-            rowElementwiseSums2.setInput("1,-2,3,-4,5");
-            rowElementwiseSums2.setInput("6,7,-8,9,-10");
+            rowElementwiseSums2.setInput("[1, -2, 3, -4, 5]");
+            rowElementwiseSums2.setInput("[6, 7, -8, 9, -10]");
             String expectedResult2 = "[7, 5, 6, 5, 5]";
             rowElementwiseSums2.setExpectedResult(expectedResult2);
 
@@ -342,8 +342,8 @@ public class ArrayUtilsTester {
 
             rowElementwiseSums3.setID("ElementwiseSums-3");
             rowElementwiseSums3.setDescription("Testing for ElementwiseSum(): Negative integer arrays");
-            rowElementwiseSums3.setInput("-1,-2,-3,-4,-5");
-            rowElementwiseSums3.setInput("-6,-7,-8,-9,-10");
+            rowElementwiseSums3.setInput("[-1, -2, -3, -4, -5]");
+            rowElementwiseSums3.setInput("[-6, -7, -8, -9, -10]");
             String expectedResult3 = "[-7, -9, -11, -13, -15]";
             rowElementwiseSums3.setExpectedResult(expectedResult3);
 
@@ -796,11 +796,33 @@ public class ArrayUtilsTester {
     }
     
     private void showReport() {
+        String testResultTable = "<!DOCTYPE html><html><head><title>Test</title><meta charset=\"utf-8\"><style>\n" +
+        "html {margin: 2%;} th{font-size:1.3em;}\n" +
+        "table,th, td {border: 1px solid black;border-collapse: collapse;padding: 6px;}\n" +
+        "table {width: 95%;}td:first-child, td:nth-child(6) {width: 6%;}\n" +
+        "td {width: 22%;}.fail {background-color: pink;}</style></head><body>\n" +
+        "<h1>Test Result:</h1>";
         
         for(Table table : tables) {
             if(table != null)
-                System.out.println(table.getTable());
+                testResultTable += table.getTable();
         }
+        testResultTable += "</body></html>";
+        
+        //System.out.println(testResultTable);
+        // create an html file and write the output in the file
+        String filePath = "C:\\Users\\tendh\\OneDrive\\Documents\\IT-PA\\4-Fall Term\\PROG1303E-Java Programming\\Assignments\\Java_Assignment2\\src\\arrayutils\\TestResult.html";
+        try {
+            
+            // write output to html file
+            FileWriter myWriter = new FileWriter(filePath);
+            myWriter.write(testResultTable);
+            myWriter.close();
+            System.out.println("Successfully wrote to the file.");
+          } catch (IOException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+          }
     }
     
     public static void main (String[] args) {
