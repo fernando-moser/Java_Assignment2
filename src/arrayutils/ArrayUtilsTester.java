@@ -401,8 +401,26 @@ public class ArrayUtilsTester {
         rowTestFrequency2.setPass(Integer.valueOf(expectedResult2).equals(result2));
         
         testFrequency.addRow(rowTestFrequency2);
+
+        //        Test 3:
+
+        Row rowTestFrequency3 = new Row();
+        rowTestFrequency3.setId("Frequency-3");
+        rowTestFrequency3.setDescription("Testing for a false result");
         
-//        System.out.println(testFrequency.getTable());
+        int[] input3a = {1,5,10,6,5,7,5};
+        int input3b = 5;
+        rowTestFrequency3.setInput(Arrays.toString(input3a));
+        rowTestFrequency3.setInput(String.valueOf(input3b));
+        String expectedResult3 = "2";
+        rowTestFrequency3.setExpectedResult(expectedResult3);
+        
+        
+        int result3 = ArrayUtils.frequency(input3a, input3b);
+        rowTestFrequency3.setActualResult(String.valueOf(result3));
+        rowTestFrequency3.setPass(Integer.valueOf(expectedResult3).equals(result3));
+        
+        testFrequency.addRow(rowTestFrequency3);
     }
     
     private void runTestIsSorted() {
@@ -412,7 +430,7 @@ public class ArrayUtilsTester {
 //        Test 1
         Row rowTestIsSorted1 = new Row();
         rowTestIsSorted1.setId("isSorted-1");
-        rowTestIsSorted1.setDescription("Passing an array not sorted");
+        rowTestIsSorted1.setDescription("Passing an unsorted array");
         int[] input1 = {1,5,10,3,5,7,3};
         String expectedResult1 = "false";
         rowTestIsSorted1.setInput(Arrays.toString(input1));
@@ -442,11 +460,11 @@ public class ArrayUtilsTester {
 //        Test 3
         Row rowTestIsSorted3 = new Row();
         rowTestIsSorted3.setId("isSorted-3");
-        rowTestIsSorted3.setDescription("Passing an array unsorted with 2 elements");
+        rowTestIsSorted3.setDescription("Passing a sorted array of 2 elements");
         
         int[] input3 = {3,10};
         rowTestIsSorted3.setInput(Arrays.toString(input3));
-        String expectedResult3 = "true";
+        String expectedResult3 = "false";
         rowTestIsSorted3.setExpectedResult(expectedResult3);
         boolean result3 = ArrayUtils.isSorted(input3);
         rowTestIsSorted3.setActualResult(String.valueOf(result3));
@@ -456,7 +474,7 @@ public class ArrayUtilsTester {
 //        Test 4
         Row rowTestIsSorted4 = new Row();
         rowTestIsSorted4.setId("isSorted-4");
-        rowTestIsSorted4.setDescription("Passing an array unsorted with 1 element");
+        rowTestIsSorted4.setDescription("Passing an array of 1 element");
         
         int[] input4 = {20};
         rowTestIsSorted4.setInput(Arrays.toString(input4));
@@ -574,7 +592,7 @@ public class ArrayUtilsTester {
 //        Test 6
         Row rowTestMerge6 = new Row();
         rowTestMerge6.setId("testMerge-6");
-        rowTestMerge6.setDescription("Passing 2 arrays with 1 element");
+        rowTestMerge6.setDescription("Passing 2 arrays of 1 element");
         
         int[] input6a = {9}, input6b = {3};
         int[] expectedResult6 = {3,9};
@@ -656,7 +674,7 @@ public class ArrayUtilsTester {
 //        Test 3
         Row rowTestReverse3 = new Row();
         rowTestReverse3.setId("testReverse-3");
-        rowTestReverse3.setDescription("Passing an array with 1 item");
+        rowTestReverse3.setDescription("Passing an array of 1 item");
         
         int[] input3 = {7};
         int[] expectedResult3 = {7};
@@ -675,7 +693,7 @@ public class ArrayUtilsTester {
 //        Test 4
         Row rowTestReverse4 = new Row();
         rowTestReverse4.setId("testReverse-4");
-        rowTestReverse4.setDescription("Passing an empty array");
+        rowTestReverse4.setDescription("Passing an of array");
         
         int[] input4 = {};
         int[] expectedResult4 = {};
@@ -689,7 +707,26 @@ public class ArrayUtilsTester {
         rowTestReverse4.setActualResult(Arrays.toString(result4));
         rowTestReverse4.setPass(Arrays.equals(expectedResult4, result4));
         
-        testReverse.addRow(rowTestReverse4);         
+        testReverse.addRow(rowTestReverse4);
+        
+//        Test 5
+        Row rowTestReverse5 = new Row();
+        rowTestReverse5.setId("testReverse-5");
+        rowTestReverse5.setDescription("Passing an array of 4 items");
+        
+        int[] input5 = {2,7,19,12};
+        int[] expectedResult5 = {2,7,19,12};
+        
+        rowTestReverse5.setInput(Arrays.toString(input5));
+        
+        rowTestReverse5.setExpectedResult(Arrays.toString(expectedResult5));
+        
+        int[] result5 = ArrayUtils.reverse(input5);
+        
+        rowTestReverse5.setActualResult(Arrays.toString(result5));
+        rowTestReverse5.setPass(Arrays.equals(expectedResult5, result5));
+        
+        testReverse.addRow(rowTestReverse5);
     }
     
     private void runTestScale() {
@@ -765,7 +802,7 @@ public class ArrayUtilsTester {
         
         int[] input4a = {};
         int input4b = 5;
-        int[] expectedResult4 = {};
+        int[] expectedResult4 = {5};
         
         rowTestScale4.setInput(Arrays.toString(input4a));
         rowTestScale4.setInput(String.valueOf(input4b));
