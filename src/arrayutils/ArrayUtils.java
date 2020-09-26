@@ -44,7 +44,6 @@ public class ArrayUtils {
      * @param arrB another input array
      * @return a new array containing all the elements from both arrays
      */
-    
     public static int[] concatenate(int[] arrA, int[] arrB) {
         // create new array to store the result
             int[] result = new int[arrA.length + arrB.length];

@@ -27,19 +27,19 @@ public final class Table {
         this.methodName = "<h1> Method: " + methodName + "</h1>";
         
         Row headerRow = new Row(true);
-        headerRow.setID("Test ID");
+        headerRow.setId("Test ID");
         headerRow.setDescription("Description");
         headerRow.setInput("Inputs");
         headerRow.setExpectedResult("Expected Result");
         headerRow.setActualResult("Actual Result");
         headerRow.setPass("Pass?");
-        AddRow(headerRow);
+        addRow(headerRow);
     }
     /**
      * Adds a Row object into the table
      * @param row object with the test case. 
      */
-    public void AddRow(Row row) {
+    public void addRow(Row row) {
         //String builder to concatanate the strings
         StringBuilder sBuilder = new StringBuilder();
         //If Pass result is false, appends to the <tr> tag the css class "fail"
@@ -48,7 +48,7 @@ public final class Table {
         } else {
             sBuilder.append("<tr>");
         }
-        sBuilder.append(row.getID());
+        sBuilder.append(row.getId());
         sBuilder.append(row.getDescription());
         sBuilder.append(row.isIsHeaderRow() ? row.getInputs() : row.buildInputList());
         sBuilder.append(row.getExpectedResult());

@@ -12,27 +12,27 @@ public class Row {
     /**
      * Identification of the test case.
      */
-    private String ID;
+    private String id;
     /**
-     * Description of the test case.
+     * description of the test case.
      */
-    private String Description;
+    private String description;
     /**
-     * Input used to test the method.
+     * input used to test the method.
      */
-    private String Input = "";
+    private String input = "";
     /**
      * Expected result of the method's processing.
      */
-    private String ExpectedResult;
+    private String expectedResult;
     /**
      * Actual result output.
      */
-    private String ActualResult;
+    private String actualResult;
     /**
      * String value indicating whether it passed or not.
      */
-    private String Pass;
+    private String pass;
     /**
      * Indicates if the row object is a header.
      */
@@ -54,39 +54,39 @@ public class Row {
         this.isHeaderRow = isHeaderRow;
     }
     /**
-     * Gets the formatted ID field surrounded by the appropriate tag accordingly with the isHeaderRow field
-     * @return String containing the ID
+     * Gets the formatted id field surrounded by the appropriate tag accordingly with the isHeaderRow field
+     * @return String containing the id
      */
-    public String getID() {
-        return ID;
+    public String getId() {
+        return id;
     }
     /**
-     * Sets the ID field by concatenating the String value with the appropriate tag accordingly with the isHeaderRow field
-     * @param ID 
+     * Sets the id field by concatenating the String value with the appropriate tag accordingly with the isHeaderRow field
+     * @param id 
      */
-    public void setID(String ID) {
-        this.ID = buildTableCell(ID);
+    public void setId(String id) {
+        this.id = buildTableCell(id);
     }
     /**
      * Gets the formatted description field surrounded by the appropriate tag accordingly with the isHeaderRow field
-     * @return String containing the Description
+     * @return String containing the description
      */
     public String getDescription() {
-        return Description;
+        return description;
     }
     /**
-     * Sets the Description field by concatenating the String value with the appropriate tag accordingly with the isHeaderRow field
+     * Sets the description field by concatenating the String value with the appropriate tag accordingly with the isHeaderRow field
      * @param Description 
      */
     public void setDescription(String Description) {
-        this.Description = buildTableCell(Description);
+        this.description = buildTableCell(Description);
     }
     /**
      * Gets the input filed 
-     * @return String containing the Input
+     * @return String containing the input
      */
     public String getInputs() {
-        return Input;
+        return input;
     }
     /**
      * Sets the input field by concatenating the String value with the appropriate tag accordingly with the isHeaderRow field
@@ -94,45 +94,45 @@ public class Row {
      */
     public void setInput(String Inputs) {
         if(isHeaderRow) {
-            this.Input = buildTableCell(Inputs);
+            this.input = buildTableCell(Inputs);
         } else {
-            this.Input += buildInput(Inputs);
+            this.input += buildInput(Inputs);
         }
     }
     /**
-     * Gets the ExpectedResult field surrounded by the appropriate tag accordingly with the isHeaderRow field
-     * @return String containing the ExpectedResult
+     * Gets the expectedResult field surrounded by the appropriate tag accordingly with the isHeaderRow field
+     * @return String containing the expectedResult
      */
     public String getExpectedResult() {
-        return ExpectedResult;
+        return expectedResult;
     }
     /**
-     * Sets the ExpectedResult field by concatenating the String value with the appropriate tag accordingly with the isHeaderRow field
+     * Sets the expectedResult field by concatenating the String value with the appropriate tag accordingly with the isHeaderRow field
      * @param ExpectedResult 
      */
     public void setExpectedResult(String ExpectedResult) {
-        this.ExpectedResult = buildTableCell(ExpectedResult);
+        this.expectedResult = buildTableCell(ExpectedResult);
     }
     /**
-     * Gets the ActualResult field surrounded by the appropriate tag accordingly with the isHeaderRow field
-     * @return String containing the ActualResult
+     * Gets the actualResult field surrounded by the appropriate tag accordingly with the isHeaderRow field
+     * @return String containing the actualResult
      */
     public String getActualResult() {
-        return ActualResult;
+        return actualResult;
     }
     /**
-     * Sets the ActualResult field by concatenating the String value with the appropriate tag accordingly with the isHeaderRow field
+     * Sets the actualResult field by concatenating the String value with the appropriate tag accordingly with the isHeaderRow field
      * @param ActualResult 
      */
     public void setActualResult(String ActualResult) {
-        this.ActualResult = buildTableCell(ActualResult);
+        this.actualResult = buildTableCell(ActualResult);
     }
     /**
-     * Gets the Pass field surrounded by the appropriate tag accordingly with the isHeaderRow field
-     * @return String containing the Pass
+     * Gets the pass field surrounded by the appropriate tag accordingly with the isHeaderRow field
+     * @return String containing the pass
      */
     public String getPass() {
-        return Pass;
+        return pass;
     }
     /**
      * Sets the Pass field by concatenating the String value with the appropriate tag accordingly with the isHeaderRow field.
@@ -141,7 +141,7 @@ public class Row {
      * @param Pass 
      */
     public void setPass(boolean Pass) {
-        this.Pass = buildTableCell(Pass ? "true" : "false");
+        this.pass = buildTableCell(Pass ? "true" : "false");
     }
     /**
      * Sets the Pass field by concatenating the String value with the appropriate tag accordingly with the isHeaderRow field.
@@ -149,7 +149,7 @@ public class Row {
      * @param Pass 
      */
     public void setPass(String Pass) {
-        this.Pass = buildTableCell(Pass);
+        this.pass = buildTableCell(Pass);
     }
     /**
      * Gets the boolean value value indicating whether the instance is a headerRow or not.
@@ -183,7 +183,7 @@ public class Row {
      * @return String containing the field formatted to build a HTML table.
      */
     public String buildInputList() {
-        return "<td><ul>" + this.Input + "</ul></td>";
+        return "<td><ul>" + this.input + "</ul></td>";
     }
     
 }
